@@ -1,4 +1,3 @@
 <?php
-$name = "Forum Name";
-$url = "http://forumurl.com";
+define("FORUM_INSTALLED", false);
 ?>

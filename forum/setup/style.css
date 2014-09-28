@@ -1,0 +1,32 @@
+html, body {
+	font-family: sans-serif;
+}
+body {
+	padding: 20px;
+}
+hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc); 
+    background-image:    -moz-linear-gradient(left, #ccc, #333, #ccc); 
+    background-image:     -ms-linear-gradient(left, #ccc, #333, #ccc); 
+    background-image:      -o-linear-gradient(left, #ccc, #333, #ccc); 
+}
+a.button {
+	padding: 5px;
+	background-color: #BF3F4A;
+	border-radius: 7px;
+	text-decoration: none;
+	color: #FFF;
+}
+a.button:hover {
+	background-color: #DC505C;
+}
+h1 {
+	font-family: courier;
+	font-weight: 700 !important;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 100;
+}
