@@ -1,9 +1,9 @@
 <!-- Setup database information -->
-<h2>Welcome to Pobrum!</h2>
+<h2>Setup Database</h2>
 
-<p>Pobrum is a free, open source forum software that is made to be modern, secure and stylish.</p>
+<p>Pobrum uses MySQL in order to store information.</p>
 
-<p>You're just a few steps away from setting up your very own installation of Pobrum.</p>
+<p>Please enter your database infromation below.</p>
 <?php
 
 ?>
