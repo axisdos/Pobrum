@@ -4,6 +4,8 @@
 <hr>
 
 <?php
+include("db.php");
+
 //Load correct setup based on GET header
 
 $page = 0;

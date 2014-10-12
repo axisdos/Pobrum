@@ -6,7 +6,7 @@ table.cat {
 table.cat tr td {
 	border-top: solid;
 	border-bottom: solid;
-	border-width: 1px;
+	border-width: 2px;
 	border-color: #BFBFBF;
 }
 table.cat tr:nth-child(even) td {
@@ -17,12 +17,12 @@ table.cat tr:nth-child(odd) td {
 }
 table.cat tr:first-child {
 	border-bottom: solid;
-	border-width: 2px;
+	border-width: 3px;
 	border-color: #BFBFBF;
 }
 table.cat tr:last-child {
 	border-bottom: solid;
-	border-width: 2px;
+	border-width: 3  px;
 	border-color: #BFBFBF;
 }
 table.cat tr td {
