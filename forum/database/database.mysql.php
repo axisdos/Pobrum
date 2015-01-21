@@ -2,14 +2,14 @@
 
 //TODO Needs to be tested/ checked/ etc...
 
+include_once("config/config.php");
+
 class Database {
 
-	include_once "config/config.php";
+	public static $con = null;
 
-	$con = null;
-
-	public function connect($host, $user, $password) {
-		$mysqli = new mysqli($host, $user, $password);
+	public static function connect($host, $user, $password, $database) {
+		$mysqli = new mysqli($host, $user, $password, $database);
 		if ($mysqli->connect_errno) {
 			if (DEBUG) {
 				echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
@@ -17,39 +17,35 @@ class Database {
 			return false;
 		}
 		else {
-			$con = $mysqli;
+			self::$con = $mysqli;
 			return true;
 		}
 	}
 
-	public function disconnect() {
-		return $con::close();
+	public static function disconnect() {
+		return self::$con->close();
 	}
 
-	public function query($statement, $arguments) {
-		if (!($stmt = $mysqli->prepare("INSERT INTO test(id) VALUES (?)"))) {
+	public static function query($statement, $arguments) {
+		if (!($stmt = self::$con->prepare($statement))) {
 			if (DEBUG) {
-				echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+				echo "Prepare failed: (" . self::$con->errno . ") " . self::$con->error;
 			}
 			return null;
 		}
-		$i = 1;
 		foreach ($arguments as $arg) {
-			$stmt->bindParam($i, $arg);
+			$stmt->bind_param($arg['type'], $arg['value']);
 		}
 		return $stmt->execute();
 	}
 
-	public function update($statement, $arguments) {
-		if (!($stmt = $mysqli->prepare("INSERT INTO test(id) VALUES (?)"))) {
-			if (DEBUG) {
-				echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
-			}
-			return false;
-		}
-		$i = 1;
+	public static function update($statement, $arguments) {
+		$stmt = self::$con->prepare($statement);
+
+		print_r($arguments);
 		foreach ($arguments as $arg) {
-			$stmt->bindParam($i, $arg);
+			$stmt->bind_param($arg['type'], $arg['value']);
+			echo $arg['type'] . " : " . $arg['value'];
 		}
 		$stmt->execute();
 		return true;

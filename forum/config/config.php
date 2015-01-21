@@ -10,5 +10,6 @@ to configure the forums.
 */ 
 
 define("FORUM_INSTALLED", false);
+define("DEBUG", true);
 
 ?>
